@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>netty-1-00</module>
+        <module>netty-1-01</module>
     </modules>
 
     <properties>
@@ -22,6 +23,12 @@
             <groupId>io.github.nibnait</groupId>
             <artifactId>common-enhance</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.36.Final</version>
         </dependency>
     </dependencies>
 </project>

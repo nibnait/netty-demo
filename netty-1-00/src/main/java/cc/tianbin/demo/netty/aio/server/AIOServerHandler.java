@@ -1,9 +1,8 @@
 package cc.tianbin.demo.netty.aio.server;
 
+import cc.tianbin.demo.netty.CommonConstants;
 import cc.tianbin.demo.netty.aio.ChannelAdapter;
 import cc.tianbin.demo.netty.aio.ChannelHandler;
-import io.github.nibnait.common.utils.date.DateTimeConvertUtils;
-import io.github.nibnait.common.utils.date.DateUtils;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -36,7 +35,7 @@ public class AIOServerHandler extends ChannelAdapter {
 
     @Override
     public void channelRead(ChannelHandler ctx, Object msg) {
-        log.info("{} AIOServer 收到消息 {}", DateTimeConvertUtils.timeStamp2DateTimeString(DateUtils.currentTimeMillis()), msg);
+        log.info("{} AIOServer 收到消息 {}", CommonConstants.CURRENT_TIME(), msg);
         ctx.writeAndFlush("hi 我已收到你的消息 success");
     }
 }

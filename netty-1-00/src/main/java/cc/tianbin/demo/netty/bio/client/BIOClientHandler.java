@@ -1,9 +1,8 @@
 package cc.tianbin.demo.netty.bio.client;
 
+import cc.tianbin.demo.netty.CommonConstants;
 import cc.tianbin.demo.netty.bio.ChannelAdapter;
 import cc.tianbin.demo.netty.bio.ChannelHandler;
-import io.github.nibnait.common.utils.date.DateTimeConvertUtils;
-import io.github.nibnait.common.utils.date.DateUtils;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.Socket;
@@ -27,7 +26,7 @@ public class BIOClientHandler extends ChannelAdapter {
 
     @Override
     public void channelRead(ChannelHandler ctx, Object msg) {
-        log.info("{} BIOClient 收到消息 {}", DateTimeConvertUtils.timeStamp2DateTimeString(DateUtils.currentTimeMillis()), msg);
+        log.info("{} BIOClient 收到消息 {}", CommonConstants.CURRENT_TIME(), msg);
         ctx.writeAndFlush("hi 我已收到你的消息 success \n");
     }
 }
