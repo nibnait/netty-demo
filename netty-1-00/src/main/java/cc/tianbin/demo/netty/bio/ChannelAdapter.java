@@ -39,7 +39,7 @@ public abstract class ChannelAdapter extends Thread {
                 channelRead(channelHandler, str);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("bio channelRead error ", e);
         }
     }
 

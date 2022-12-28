@@ -20,7 +20,7 @@ public class BIOClient {
             BIOClientHandler handler = new BIOClientHandler(socket, Charset.forName(CommonConstants.CHAR_SET));
             handler.start();
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("bio client start error ", e);
         }
     }
 

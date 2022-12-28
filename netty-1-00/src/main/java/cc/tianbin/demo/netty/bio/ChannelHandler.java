@@ -2,6 +2,7 @@ package cc.tianbin.demo.netty.bio;
 
 
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -11,6 +12,7 @@ import java.nio.charset.Charset;
 /**
  * Created by nibnait on 2022/12/27
  */
+@Slf4j
 public class ChannelHandler {
 
     @Getter
@@ -29,7 +31,7 @@ public class ChannelHandler {
             out.write((msg.toString()).getBytes(charset));
             out.flush();
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("bio writeAndFlush error ", e);
         }
     }
 

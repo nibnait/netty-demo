@@ -26,7 +26,7 @@ public class AIOClientHandler extends ChannelAdapter {
             // 通知客户端链接建立成功
             ctx.writeAndFlush("hi! AIOClient to msg for you");
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("aio client channelActive writeAndFlush error ", e);
         }
     }
 

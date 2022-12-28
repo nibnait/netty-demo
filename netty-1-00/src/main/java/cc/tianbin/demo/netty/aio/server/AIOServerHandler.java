@@ -24,7 +24,7 @@ public class AIOServerHandler extends ChannelAdapter {
             log.info("链接报告 localAddress: {}", ctx.getChannel().getLocalAddress());
             ctx.writeAndFlush("hi! AIOServer to msg for you");
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("aio server channelActive writeAndFlush error ", e);
         }
     }
 

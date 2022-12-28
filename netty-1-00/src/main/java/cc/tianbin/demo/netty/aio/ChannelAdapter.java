@@ -1,5 +1,7 @@
 package cc.tianbin.demo.netty.aio;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousSocketChannel;
@@ -10,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by nibnait on 2022/12/27
  */
+@Slf4j
 public abstract class ChannelAdapter implements CompletionHandler<Integer, Object> {
 
     private AsynchronousSocketChannel channel;
@@ -38,7 +41,7 @@ public abstract class ChannelAdapter implements CompletionHandler<Integer, Objec
                         channelInactive(new ChannelHandler(channel, charset));
                         channel.close();
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        log.error("aio ChannelHandler error ", e);
                     }
                     return;
                 }

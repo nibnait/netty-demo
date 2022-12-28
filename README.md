@@ -5,9 +5,8 @@ netty
 ### 
 
 
-| module     | 内容            |
-| ---------- | --------------- |
+| module     | 内容              |
+| ---------- |-----------------|
 | netty-1-00 | BIO / NIO / AIO |
-| netty-1-01 | NettyServer     |
-| netty-1-02 | NettyClient     |
+| netty-1-01 | NettyServer / NettyClient  |
 

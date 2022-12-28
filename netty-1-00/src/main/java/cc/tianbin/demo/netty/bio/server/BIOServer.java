@@ -36,7 +36,7 @@ public class BIOServer extends Thread {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("bio server start error ", e);
         }
     }
 

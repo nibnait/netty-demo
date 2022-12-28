@@ -37,7 +37,7 @@ public class AIOServer extends Thread {
             latch.await();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("aio server start error ", e);
         }
     }
 }

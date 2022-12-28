@@ -1,6 +1,7 @@
 package cc.tianbin.demo.netty.nio;
 
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -10,6 +11,7 @@ import java.nio.charset.Charset;
 /**
  * Created by nibnait on 2022/12/27
  */
+@Slf4j
 public class ChannelHandler {
 
     @Getter
@@ -29,7 +31,7 @@ public class ChannelHandler {
             writeBuffer.flip();
             channel.write(writeBuffer);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("nio writeAndFlush error ", e);
         }
     }
 }

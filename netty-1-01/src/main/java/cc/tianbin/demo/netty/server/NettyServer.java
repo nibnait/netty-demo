@@ -35,7 +35,7 @@ public class NettyServer {
             log.info("server start done.");
             channelFuture.channel().closeFuture().sync();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            log.error("server start error ", e);
         } finally {
             childGroup.shutdownGracefully();
             parentGroup.shutdownGracefully();

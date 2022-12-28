@@ -1,6 +1,7 @@
 package cc.tianbin.demo.netty.aio;
 
 import cc.tianbin.demo.netty.aio.server.AIOServer;
+import lombok.extern.slf4j.Slf4j;
 
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
@@ -8,6 +9,7 @@ import java.nio.channels.CompletionHandler;
 /**
  * Created by nibnait on 2022/12/27
  */
+@Slf4j
 public abstract class ChannelInitializer implements CompletionHandler<AsynchronousSocketChannel, AIOServer> {
 
     @Override
@@ -15,7 +17,7 @@ public abstract class ChannelInitializer implements CompletionHandler<Asynchrono
         try {
             initChannel(channel);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("ChannelInitializer initChannel error ", e);
         } finally {
             // 在此接收客户端链接
             attachment.getServerSocketChannel().accept(attachment, this);

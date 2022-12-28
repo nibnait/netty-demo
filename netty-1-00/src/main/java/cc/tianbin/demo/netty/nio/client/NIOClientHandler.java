@@ -25,7 +25,7 @@ public class NIOClientHandler extends ChannelAdapter {
             log.info("链接报告 localAddress: {}", ctx.getChannel().getLocalAddress());
             ctx.writeAndFlush("hi! NIOClient to msg for you");
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("nio client channelActive writeAndFlush error ", e);
         }
     }
 
