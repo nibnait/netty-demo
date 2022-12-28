@@ -5,3 +5,7 @@
 ![](./docs/NettyServer.png)
 
 群发消息 基于 [ChannelHandler.channelGroup](./src/main/java/cc/tianbin/demo/netty/server/ChannelHandler.java)
+
+## NettyClient
+
+[NettyClient](./src/main/java/cc/tianbin/demo/netty/client/NettyClient.java)
