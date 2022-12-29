@@ -19,12 +19,12 @@ public class MyServerHandler extends ChannelInboundHandlerAdapter {
      * 当客户端主动链接服务端的链接后，这个通道就是活跃的了。也就是客户端与服务端建立了通信通道并且可以传输数据
      */
     @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+    public void channelActive(ChannelHandlerContext context) throws Exception {
         // 当有客户端链接后，添加到 channelGroup 通信组
-        ChannelHandler.channelGroup.add(ctx.channel());
+        ChannelHandler.channelGroup.add(context.channel());
 
         // 打印日志
-        SocketChannel channel = (SocketChannel) ctx.channel();
+        SocketChannel channel = (SocketChannel) context.channel();
         log.info("链接报告开始");
         log.info("链接报告信息: 有一客户端连接到本服务端");
         log.info("链接报告IP: {}", channel.localAddress().getHostString());
@@ -35,22 +35,22 @@ public class MyServerHandler extends ChannelInboundHandlerAdapter {
         String str = DataUtils.format("通知客户端链接建立成功 {} {} \n", CommonConstants.CURRENT_TIME(), channel.localAddress().getHostString());
         ByteBuf buffer = Unpooled.buffer(str.getBytes().length);
         buffer.writeBytes(str.getBytes(CommonConstants.CHAR_SET_UTF8));
-        ctx.writeAndFlush(buffer);
+        context.writeAndFlush(buffer);
     }
 
     /**
      * 当客户端主动断开服务端的链接后，这个通道就是不活跃的。也就是说客户端与服务端的关闭了通信通道并且不可以传输数据
      */
     @Override
-    public void channelInactive(ChannelHandlerContext ctx) {
-        log.info("客户端断开链接 {}", ctx.channel().localAddress().toString());
+    public void channelInactive(ChannelHandlerContext context) {
+        log.info("客户端断开链接 {}", context.channel().localAddress().toString());
 
         // 当有客户端退出后，从channelGroup中移除。
-        ChannelHandler.channelGroup.remove(ctx.channel());
+        ChannelHandler.channelGroup.remove(context.channel());
     }
 
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+    public void channelRead(ChannelHandlerContext context, Object msg) throws Exception {
         log.info("{} 收到消息: {}", CommonConstants.CURRENT_TIME(), msg);
 
         // 收到消息后，群发给客户端
@@ -62,8 +62,8 @@ public class MyServerHandler extends ChannelInboundHandlerAdapter {
      * 抓住异常，当发生异常的时候，可以做一些相应的处理，比如打印日志、关闭链接
      */
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        ctx.close();
+    public void exceptionCaught(ChannelHandlerContext context, Throwable cause) throws Exception {
+        context.close();
         log.error("异常信息：", cause);
     }
 }

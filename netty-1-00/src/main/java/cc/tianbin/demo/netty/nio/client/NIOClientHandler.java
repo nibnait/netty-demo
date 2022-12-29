@@ -20,18 +20,18 @@ public class NIOClientHandler extends ChannelAdapter {
     }
 
     @Override
-    public void channelActive(ChannelHandler ctx) {
+    public void channelActive(ChannelHandler context) {
         try {
-            log.info("链接报告 localAddress: {}", ctx.getChannel().getLocalAddress());
-            ctx.writeAndFlush("hi! NIOClient to msg for you");
+            log.info("链接报告 localAddress: {}", context.getChannel().getLocalAddress());
+            context.writeAndFlush("hi! NIOClient to msg for you");
         } catch (IOException e) {
             log.error("nio client channelActive writeAndFlush error ", e);
         }
     }
 
     @Override
-    public void channelRead(ChannelHandler ctx, Object msg) {
+    public void channelRead(ChannelHandler context, Object msg) {
         log.info("{} NIOClient 收到消息 {}", CommonConstants.CURRENT_TIME(), msg);
-        ctx.writeAndFlush("hi 我已收到你的消息 success");
+        context.writeAndFlush("hi 我已收到你的消息 success");
     }
 }

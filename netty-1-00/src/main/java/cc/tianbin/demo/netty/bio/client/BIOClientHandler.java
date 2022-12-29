@@ -19,14 +19,14 @@ public class BIOClientHandler extends ChannelAdapter {
     }
 
     @Override
-    public void channelActive(ChannelHandler ctx) {
-        log.info("链接报告 localAddress: {}", ctx.getSocket().getLocalAddress());
-        ctx.writeAndFlush("hi! BIOClient to msg for you \n");
+    public void channelActive(ChannelHandler context) {
+        log.info("链接报告 localAddress: {}", context.getSocket().getLocalAddress());
+        context.writeAndFlush("hi! BIOClient to msg for you \n");
     }
 
     @Override
-    public void channelRead(ChannelHandler ctx, Object msg) {
+    public void channelRead(ChannelHandler context, Object msg) {
         log.info("{} BIOClient 收到消息 {}", CommonConstants.CURRENT_TIME(), msg);
-        ctx.writeAndFlush("hi 我已收到你的消息 success \n");
+        context.writeAndFlush("hi 我已收到你的消息 success \n");
     }
 }

@@ -65,11 +65,11 @@ public abstract class ChannelAdapter implements CompletionHandler<Integer, Objec
     }
 
     // 链接通知抽象类
-    public abstract void channelActive(ChannelHandler ctx);
+    public abstract void channelActive(ChannelHandler context);
 
-    public abstract void channelInactive(ChannelHandler ctx);
+    public abstract void channelInactive(ChannelHandler context);
 
     // 读取消息抽象类
-    public abstract void channelRead(ChannelHandler ctx, Object msg);
+    public abstract void channelRead(ChannelHandler context, Object msg);
 
 }

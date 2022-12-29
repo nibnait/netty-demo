@@ -10,15 +10,15 @@ import io.netty.channel.ChannelPromise;
 public class MyOutMsgHandler extends ChannelOutboundHandlerAdapter {
 
     @Override
-    public void read(ChannelHandlerContext ctx) throws Exception {
-        ctx.writeAndFlush("ChannelOutboundHandlerAdapter.read 发来一条消息 \n");
-        super.read(ctx);
+    public void read(ChannelHandlerContext context) throws Exception {
+        context.writeAndFlush("ChannelOutboundHandlerAdapter.read 发来一条消息 \n");
+        super.read(context);
     }
 
     @Override
-    public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
-        ctx.writeAndFlush("ChannelOutboundHandlerAdapter.write 发来一条消息 \n");
-        super.write(ctx, msg, promise);
+    public void write(ChannelHandlerContext context, Object msg, ChannelPromise promise) throws Exception {
+        context.writeAndFlush("ChannelOutboundHandlerAdapter.write 发来一条消息 \n");
+        super.write(context, msg, promise);
     }
 
 }

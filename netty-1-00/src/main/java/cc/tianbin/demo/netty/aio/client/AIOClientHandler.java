@@ -19,25 +19,25 @@ public class AIOClientHandler extends ChannelAdapter {
     }
 
     @Override
-    public void channelActive(ChannelHandler ctx) {
+    public void channelActive(ChannelHandler context) {
         try {
-            log.info("链接报告 localAddress: {}", ctx.getChannel().getLocalAddress());
+            log.info("链接报告 localAddress: {}", context.getChannel().getLocalAddress());
 
             // 通知客户端链接建立成功
-            ctx.writeAndFlush("hi! AIOClient to msg for you");
+            context.writeAndFlush("hi! AIOClient to msg for you");
         } catch (IOException e) {
             log.error("aio client channelActive writeAndFlush error ", e);
         }
     }
 
     @Override
-    public void channelInactive(ChannelHandler ctx) {
+    public void channelInactive(ChannelHandler context) {
 
     }
 
     @Override
-    public void channelRead(ChannelHandler ctx, Object msg) {
+    public void channelRead(ChannelHandler context, Object msg) {
         log.info("{} AIOClient 收到消息 {}", CommonConstants.CURRENT_TIME(), msg);
-        ctx.writeAndFlush("hi 我已收到你的消息 success");
+        context.writeAndFlush("hi 我已收到你的消息 success");
     }
 }
