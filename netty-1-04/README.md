@@ -1,0 +1,1 @@
+依赖 NioDatagramChannel、ChannelOption.SO_BROADCAST

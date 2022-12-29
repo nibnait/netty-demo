@@ -12,4 +12,5 @@ netty
 | [netty-1-02](./netty-1-02/README.md) | 处理半包、粘包数据  |
 | [netty-1-03](./netty-1-03/README.md) | 关于ChannelOutboundHandlerAdapter简单使用  |
 | [netty-1-04](./netty-1-04/README.md) | netty udp通信方式案例Demo  |
+| [netty-1-05](./netty-1-05/README.md) | 简单实现一个基于Netty搭建的Http服务  |
 
